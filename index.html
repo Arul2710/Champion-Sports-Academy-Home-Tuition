@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion Sports Academy | Home Tuition & Multi-Location Coaching</title>
+    <meta name="description" content="Premier home tuition and multi-location sports coaching academy for children. Professional training in Football, Basketball, Athletics, and competitive sports.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN (Blue Theme Config) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#172554'
+                        },
+                        secondary: '#1E3A8A',
+                        accent: '#38BDF8',
+                        surface: '#EFF6FF',
+                        ink: '#1E293B',
+                        night: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Theme & RTL -->
+    <script src="js/theme.js"></script>
+    <script src="js/rtl.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-200 min-h-screen flex flex-col justify-between">
+
+    <!-- ================= SITE NAVBAR ================= -->
+    <nav class="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
+            <div class="flex items-center justify-between h-20 gap-2 xl:gap-3">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3 shrink-0 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-900 via-blue-600 to-sky-400 flex items-center justify-center text-white text-xl font-black shadow-lg transition-transform group-hover:scale-105">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-black tracking-tight uppercase leading-none text-slate-900 dark:text-white">Champion</span>
+                        <span class="block text-[10px] font-semibold tracking-widest uppercase text-blue-600 dark:text-sky-400">Sports Academy</span>
+                    </div>
+                </a>
+
+                <!-- Center Nav Links (Desktop) -->
+                <div class="hidden lg:flex items-center space-x-0.5 xl:space-x-2">
+                    <!-- Home Dropdown: Home 1 = index.html, Home 2 = home2.html -->
+                    <div class="relative dropdown-parent group py-2">
+                        <button type="button" data-dropdown-toggle data-nav-match="index.html,home2.html" aria-haspopup="true" aria-controls="home-dropdown-menu" class="nav-link flex items-center gap-1 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            <span>Home</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div id="home-dropdown-menu" class="dropdown-menu absolute top-full left-0 w-52 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 z-50">
+                            <a href="index.html" class="block px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700/50 hover:text-blue-600">
+                                <i class="fa-solid fa-house w-4 mr-2 text-blue-500"></i>Home 1
+                            </a>
+                            <a href="home2.html" class="block px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700/50 hover:text-blue-600">
+                                <i class="fa-solid fa-bolt w-4 mr-2 text-sky-500"></i>Home 2
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- About: single link, no sub-pages -->
+                    <a href="about.html" class="nav-link text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">About</a>
+
+                    <a href="sports.html" class="nav-link text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg transition-colors">Sports Offered</a>
+                    <a href="batches.html" class="nav-link text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg transition-colors">Batch Timings</a>
+                    <a href="blog.html" class="nav-link text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg transition-colors">Blog</a>
+                    <!-- Contact: direct link to the one contact page -->
+                    <a href="contact.html" class="nav-link text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Contact</a>
+
+                    <!-- Dashboard: parent + admin portals -->
+                    <div class="relative dropdown-parent group py-2">
+                        <button type="button" data-dropdown-toggle data-nav-match="parent-dashboard.html,admin-dashboard.html" aria-haspopup="true" aria-controls="dashboard-dropdown-menu" class="nav-link flex items-center gap-1 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-sky-400 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            <i class="fa-solid fa-gauge-high text-xs"></i>
+                            <span>Dashboard</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div id="dashboard-dropdown-menu" class="dropdown-menu absolute top-full left-0 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 z-50">
+                            <a href="parent-dashboard.html" class="nav-link block px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700/50 hover:text-blue-600">
+                                <i class="fa-solid fa-user-gear w-4 mr-2 text-blue-600"></i>Parent Dashboard
+                            </a>
+                            <a href="admin-dashboard.html" class="nav-link block px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700/50 hover:text-blue-600">
+                                <i class="fa-solid fa-user-shield w-4 mr-2 text-sky-500"></i>Admin Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Nav Controls (Desktop) -->
+                <div class="hidden lg:flex items-center space-x-2 xl:space-x-3 shrink-0">
+                    <button type="button" class="rtl-toggle-btn navbar-icon-btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <span class="rtl-text">RTL</span>
+                    </button>
+
+                    <button type="button" class="theme-toggle-btn navbar-icon-btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i class="fa-solid fa-moon text-lg"></i>
+                    </button>
+
+                    <!-- Account: Login / Sign Up. Same icon-button recipe as the RTL + theme toggles. -->
+                    <div class="relative dropdown-parent py-2">
+                        <button type="button" data-dropdown-toggle aria-haspopup="true" aria-controls="account-dropdown-menu" aria-label="Account" class="navbar-icon-btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                            <i class="fa-solid fa-user"></i>
+                        </button>
+                        <div id="account-dropdown-menu" class="dropdown-menu absolute top-full right-0 w-52 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 z-50">
+                            <a href="login.html" class="block px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700/50 hover:text-blue-600">
+                                <i class="fa-solid fa-right-to-bracket w-4 mr-2 text-blue-600"></i>Login
+                            </a>
+                            <a href="signup.html" class="block px-4 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700/50 hover:text-blue-600">
+                                <i class="fa-solid fa-user-plus w-4 mr-2 text-blue-600"></i>Sign Up
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tablet / Mobile Controls: hamburger only.
+                     Dark Mode deliberately lives inside the drawer, so no separate
+                     theme button is exposed outside the menu on small screens. -->
+                <div class="flex items-center space-x-2 lg:hidden shrink-0">
+                    <button type="button" id="mobile-menu-toggle" aria-label="Open navigation menu" aria-controls="mobile-menu-drawer" class="p-2.5 rounded-xl bg-blue-600 text-white shadow-md">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= MOBILE / TABLET DRAWER ================= -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60] hidden"></div>
+    <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white dark:bg-slate-900 z-[60] translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-slate-800">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <span class="font-black text-slate-900 dark:text-white">Champion Sports</span>
+                </a>
+                <button type="button" id="mobile-menu-close" aria-label="Close navigation menu" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div class="py-6 space-y-3">
+                <div>
+                    <button type="button" data-nav-match="index.html,home2.html" class="drawer-nav-link mobile-dropdown-btn w-full flex items-center justify-between py-2 text-slate-800 dark:text-slate-200 font-semibold">
+                        <span><i class="fa-solid fa-house w-4 mr-2"></i>Home</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div class="pl-6 mt-2 space-y-2 hidden">
+                        <a href="index.html" class="block text-sm text-slate-600 dark:text-slate-400 py-1 font-medium">Home 1</a>
+                        <a href="home2.html" class="block text-sm text-slate-600 dark:text-slate-400 py-1">Home 2</a>
+                    </div>
+                </div>
+
+                <a href="about.html" class="drawer-nav-link block py-2 text-slate-800 dark:text-slate-200 font-semibold"><i class="fa-solid fa-circle-info w-4 mr-2 text-blue-600"></i>About</a>
+
+                <a href="sports.html" class="drawer-nav-link block py-2 text-slate-800 dark:text-slate-200 font-semibold"><i class="fa-solid fa-futbol w-4 mr-2 text-blue-600"></i>Sports Offered</a>
+                <a href="batches.html" class="drawer-nav-link block py-2 text-slate-800 dark:text-slate-200 font-semibold"><i class="fa-solid fa-calendar-days w-4 mr-2 text-blue-600"></i>Batch Timings</a>
+                <a href="blog.html" class="drawer-nav-link block py-2 text-slate-800 dark:text-slate-200 font-semibold"><i class="fa-solid fa-newspaper w-4 mr-2 text-blue-600"></i>Blog</a>
+
+                <!-- Contact: direct link to the one contact page -->
+                <a href="contact.html" class="drawer-nav-link block py-2 text-slate-800 dark:text-slate-200 font-semibold"><i class="fa-solid fa-envelope w-4 mr-2 text-blue-600"></i>Contact</a>
+
+                <!-- Dashboard: parent + admin portals -->
+                <div>
+                    <button type="button" data-nav-match="parent-dashboard.html,admin-dashboard.html" class="drawer-nav-link mobile-dropdown-btn w-full flex items-center justify-between py-2 text-slate-800 dark:text-slate-200 font-semibold">
+                        <span><i class="fa-solid fa-gauge-high w-4 mr-2 text-blue-600"></i>Dashboard</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                    </button>
+                    <div class="pl-6 mt-2 space-y-2 hidden">
+                        <a href="parent-dashboard.html" class="block text-sm text-slate-700 dark:text-slate-300 py-1 font-medium">Parent Dashboard</a>
+                        <a href="admin-dashboard.html" class="block text-sm text-slate-700 dark:text-slate-300 py-1 font-medium">Admin Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-3">
+            <div class="flex items-center gap-2">
+                <button type="button" class="rtl-toggle-btn navbar-icon-btn bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200">
+                    <span class="rtl-text">RTL</span>
+                </button>
+                <button type="button" class="theme-toggle-btn navbar-icon-btn bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="login.html" class="block w-full text-center py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md transition-colors">Login</a>
+                <a href="signup.html" class="block w-full text-center py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold transition-colors">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (EXACTLY 6 SECTIONS) -->
+    <main class="flex-grow">
+
+        <!-- SECTION 1: HERO SECTION -->
+        <section class="hero-section hero-section-hero min-h-[88vh] flex items-center justify-center bg-slate-950 text-white overflow-hidden py-16">
+            <div class="hero-bg hero-bg-stadium" role="img" aria-label="Children practicing sports with a coach on a floodlit pitch"></div>
+            <div class="absolute inset-0 z-[1] bg-gradient-to-r from-slate-950/90 via-slate-950/70 to-blue-950/55"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-blue-500/20 border border-blue-400/40 text-sky-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-medal text-sky-400"></i>
+                            <span>Multi-Location & Home Sports Tuition</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight uppercase font-sans">
+                            Build <span class="text-sky-400 underline decoration-blue-500 decoration-4">Champions.</span><br>
+                            Shape Futures.
+                        </h1>
+
+                        <p class="text-slate-100 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+                            Professional sports coaching for children aged 5-17. Whether at your home turf or our state-of-the-art academy locations, we deliver elite athletic conditioning, technical mastery, and competitive match preparation.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="sports.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-blue-600/30 transition-all transform hover:-translate-y-1 flex items-center space-x-2">
+                                <span>Explore Sports</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </a>
+                            <a href="signup.html" class="bg-sky-400 hover:bg-sky-500 text-slate-950 font-extrabold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center space-x-2">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span>Enroll Your Child</span>
+                            </a>
+                        </div>
+
+                        <!-- Hero Quick Links -->
+                        <nav aria-label="Explore the academy" class="pt-1">
+                            <span class="block text-[11px] font-bold uppercase tracking-[0.2em] text-sky-300/90 mb-3">Jump To</span>
+                            <div class="flex flex-wrap gap-2.5">
+                                <a href="about.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-blue-600 hover:border-blue-400 text-white text-xs sm:text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5">
+                                    <i class="fa-solid fa-circle-info text-sky-300"></i>
+                                    <span>About</span>
+                                </a>
+                                <a href="sports.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-blue-600 hover:border-blue-400 text-white text-xs sm:text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5">
+                                    <i class="fa-solid fa-futbol text-sky-300"></i>
+                                    <span>Sports Offered</span>
+                                </a>
+                                <a href="batches.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-blue-600 hover:border-blue-400 text-white text-xs sm:text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5">
+                                    <i class="fa-regular fa-calendar-days text-sky-300"></i>
+                                    <span>Batch Timings</span>
+                                </a>
+                                <a href="blog.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-blue-600 hover:border-blue-400 text-white text-xs sm:text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5">
+                                    <i class="fa-solid fa-newspaper text-sky-300"></i>
+                                    <span>Blog</span>
+                                </a>
+                                <a href="contact.html" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-blue-600 hover:border-blue-400 text-white text-xs sm:text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5">
+                                    <i class="fa-solid fa-envelope text-sky-300"></i>
+                                    <span>Contact</span>
+                                </a>
+                            </div>
+                        </nav>
+
+                        <!-- Stats Bar -->
+                        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-800 max-w-xl">
+                            <div>
+                                <span class="block text-2xl sm:text-3xl font-black text-sky-400">12+</span>
+                                <span class="text-xs text-slate-400 uppercase font-semibold">Academy Hubs</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl sm:text-3xl font-black text-blue-400">45+</span>
+                                <span class="text-xs text-slate-400 uppercase font-semibold">Certified Coaches</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl sm:text-3xl font-black text-sky-400">1,500+</span>
+                                <span class="text-xs text-slate-400 uppercase font-semibold">Active Students</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Quick Search Card -->
+                    <div class="lg:col-span-5">
+                        <div class="glass-card bg-white/95 dark:bg-slate-800/95 p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white">
+                            <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-700">
+                                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-magnifying-glass font-bold"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold">Find a Training Batch</h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Search by location & sport specialization</p>
+                                </div>
+                            </div>
+
+                            <form id="hero-search-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-300 mb-1.5">Select Location</label>
+                                    <div class="relative">
+                                        <select id="hero-location-select" class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none font-medium text-sm">
+                                            <option value="">All Locations</option>
+                                            <option value="Central Sports Complex">Central Sports Complex (Downtown)</option>
+                                            <option value="Westside Athletics Hub">Westside Athletics Hub (West End)</option>
+                                            <option value="Northside Academy Center">Northside Academy Center (North)</option>
+                                            <option value="Home Coaching">Home Coaching (Private Turf)</option>
+                                        </select>
+                                        <i class="fa-solid fa-location-dot absolute left-3.5 top-3.5 text-blue-600"></i>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-300 mb-1.5">Select Sport</label>
+                                    <div class="relative">
+                                        <select id="hero-sport-select" class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none font-medium text-sm">
+                                            <option value="">All Sports</option>
+                                            <option value="Football">Football Coaching</option>
+                                            <option value="Basketball">Basketball Training</option>
+                                            <option value="Athletics">Athletics & Track</option>
+                                        </select>
+                                        <i class="fa-solid fa-football absolute left-3.5 top-3.5 text-blue-600"></i>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 dark:text-slate-300 mb-1.5">Age Group</label>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="hero_age" value="5-8" class="peer hidden" checked>
+                                            <span class="block text-center py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 peer-checked:bg-blue-600 peer-checked:text-white transition-colors">5 - 8 Yrs</span>
+                                        </label>
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="hero_age" value="9-13" class="peer hidden">
+                                            <span class="block text-center py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 peer-checked:bg-blue-600 peer-checked:text-white transition-colors">9 - 13 Yrs</span>
+                                        </label>
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="hero_age" value="14-17" class="peer hidden">
+                                            <span class="block text-center py-2 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 peer-checked:bg-blue-600 peer-checked:text-white transition-colors">14 - 17 Yrs</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-bolt text-sky-300"></i>
+                                    <span>Search Available Batches</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ABOUT THE ACADEMY -->
+        <section class="py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="./images/unsplash-photo-1526232761682-d26e03ac148e-w600.webp" alt="Football coaching" class="rounded-2xl shadow-lg object-cover h-64 w-full transform hover:scale-105 transition-all duration-300" loading="lazy">
+                            <img src="./images/unsplash-photo-1546519638-68e109498ffc-w600.webp" alt="Basketball coaching" class="rounded-2xl shadow-lg object-cover h-64 w-full mt-6 transform hover:scale-105 transition-all duration-300" loading="lazy">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-blue-900 text-white p-6 rounded-2xl shadow-xl hidden sm:block border border-blue-700">
+                            <span class="block text-3xl font-black text-sky-400">100%</span>
+                            <span class="text-xs uppercase font-semibold tracking-wider">Certified Coaches</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center space-x-2 text-blue-600 dark:text-sky-400 text-xs font-bold uppercase tracking-widest">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>About Champion Sports Academy</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight uppercase">
+                            Dedicated to Developing <span class="text-blue-600 dark:text-sky-400">Athletic Talent</span> & Character
+                        </h2>
+
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Champion Sports Academy provides top-tier home tuition and hub-based sports coaching for young athletes. Our mission is to bridge fundamental athletic skills with competitive mental conditioning, preparing children for school teams, state championships, and lifetime fitness.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="flex items-start space-x-3 p-3 bg-blue-50/50 dark:bg-slate-800/60 rounded-xl border border-blue-100 dark:border-slate-800">
+                                <i class="fa-solid fa-house-user text-blue-600 text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">Home Tuition Coaching</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Personalized 1-on-1 coaching at your home or neighborhood turf.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3 p-3 bg-blue-50/50 dark:bg-slate-800/60 rounded-xl border border-blue-100 dark:border-slate-800">
+                                <i class="fa-solid fa-layer-group text-blue-600 text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-sm text-slate-900 dark:text-white">Structured Batches</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Age-specific group training with strict coach-to-student ratios.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <a href="about.html" class="inline-flex items-center space-x-2 text-blue-600 dark:text-sky-400 font-bold hover:underline">
+                                <span>Learn More About Our Philosophy</span>
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SPORTS OFFERED -->
+        <section class="py-20 bg-slate-50 dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-sky-400">Disciplines & Programs</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white uppercase">Featured Sports Programs</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Comprehensive training curriculum designed for beginner, intermediate, and advanced youth athletes.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Football Card -->
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./images/footballgeelong-2024-06-12-coach.png" alt="Football Coaching" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                                <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Popular</span>
+                            </div>
+                            <div class="p-6 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Football Academy</h3>
+                                    <i class="fa-solid fa-football text-blue-600 text-xl"></i>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Ball control, tactical positioning, agility drills, and competitive league play tailored for young footballers.
+                                </p>
+                                <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                    <span><i class="fa-solid fa-child mr-1 text-blue-600"></i> Age: 5 - 17 Yrs</span>
+                                    <span><i class="fa-solid fa-signal mr-1 text-sky-600 dark:text-sky-400"></i> All Levels</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="batches.html?sport=Football" class="block w-full text-center py-3 bg-blue-50 dark:bg-slate-800 hover:bg-blue-600 hover:text-white text-blue-600 dark:text-sky-400 font-bold rounded-xl transition-colors text-sm">View Football Batches</a>
+                        </div>
+                    </div>
+
+                    <!-- Basketball Card -->
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./images/unsplash-photo-1546519638-68e109498ffc-w600.webp" alt="Basketball Training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                                <span class="absolute top-4 left-4 bg-sky-400 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase">High Energy</span>
+                            </div>
+                            <div class="p-6 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Basketball Training</h3>
+                                    <i class="fa-solid fa-basketball text-sky-500 text-xl"></i>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Dribbling mastery, shooting mechanics, defense drills, and court vision developed under expert coaches.
+                                </p>
+                                <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                    <span><i class="fa-solid fa-child mr-1 text-blue-600"></i> Age: 6 - 17 Yrs</span>
+                                    <span><i class="fa-solid fa-signal mr-1 text-sky-600 dark:text-sky-400"></i> Beg - Adv</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="batches.html?sport=Basketball" class="block w-full text-center py-3 bg-blue-50 dark:bg-slate-800 hover:bg-blue-600 hover:text-white text-blue-600 dark:text-sky-400 font-bold rounded-xl transition-colors text-sm">View Basketball Batches</a>
+                        </div>
+                    </div>
+
+                    <!-- Athletics Card -->
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-lg border border-slate-100 dark:border-slate-800 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-56 overflow-hidden">
+                                <img src="./images/unsplash-photo-1461896836934-ffe607ba8211-w600.webp" alt="Athletics Track Training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                                <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Foundational</span>
+                            </div>
+                            <div class="p-6 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Athletics & Track</h3>
+                                    <i class="fa-solid fa-person-running text-blue-600 text-xl"></i>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Sprinting form, stamina building, hurdle conditioning, long jump, and athletic speed training.
+                                </p>
+                                <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                    <span><i class="fa-solid fa-child mr-1 text-blue-600"></i> Age: 5 - 16 Yrs</span>
+                                    <span><i class="fa-solid fa-signal mr-1 text-sky-600 dark:text-sky-400"></i> Track Prep</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="batches.html?sport=Athletics" class="block w-full text-center py-3 bg-blue-50 dark:bg-slate-800 hover:bg-blue-600 hover:text-white text-blue-600 dark:text-sky-400 font-bold rounded-xl transition-colors text-sm">View Athletics Batches</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: COACHING OUTCOMES -->
+        <section class="py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-sky-400">Why Choose Champion Academy</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white uppercase">Transformative Coaching Outcomes</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">We don't just teach sports — we cultivate life skills, physical excellence, and champion mindsets.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 space-y-4 hover:border-blue-500 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Fitness & Endurance</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Structured cardiovascular conditioning, motor skills, flexibility, and core strength tailored to growing bodies.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 space-y-4 hover:border-blue-500 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500 text-slate-950 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Discipline & Teamwork</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Developing sportsmanship, peer leadership, active listening, and respect for rules and fellow athletes.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 space-y-4 hover:border-blue-500 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-arrows-to-eye"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Skill Development</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Precision technical drills, biomechanical correction, tactical game awareness, and rapid reaction drills.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 space-y-4 hover:border-blue-500 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500 text-slate-950 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Match Preparation</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Inter-hub tournaments, league participation, tournament exposure, and real match situational training.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: COACHES & TESTIMONIALS -->
+        <section class="py-20 bg-slate-50 dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-sky-400">Our Certified Staff</span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white uppercase mt-1">Featured Academy Coaches</h2>
+                    </div>
+                    <a href="coaches.html" class="mt-4 md:mt-0 text-blue-600 dark:text-sky-400 font-bold hover:underline flex items-center space-x-2">
+                        <span>View All Coaches</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                        <img src="./images/unsplash-photo-1534528741775-53994a69daeb-w400.webp" alt="Coach Marcus Vance" class="w-24 h-24 rounded-2xl object-cover mb-4 border-2 border-blue-600" loading="lazy">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Marcus Vance</h3>
+                        <p class="text-xs text-blue-600 dark:text-sky-400 font-semibold mb-2">Head Football Coach | UEFA B License</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">8+ years youth coaching experience. Specialized in tactical drills and youth conditioning.</p>
+                        <a href="coach-details.html?id=1" class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600">View Profile &rarr;</a>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                        <img src="./images/unsplash-photo-1507003211169-0a1dd7228f2d-w400.webp" alt="Coach David Miller" class="w-24 h-24 rounded-2xl object-cover mb-4 border-2 border-sky-400" loading="lazy">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">David Miller</h3>
+                        <p class="text-xs text-sky-600 dark:text-sky-400 font-semibold mb-2">Basketball Lead | Former National Player</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">10+ years coaching experience. Focuses on shooting precision and court awareness.</p>
+                        <a href="coach-details.html?id=2" class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600">View Profile &rarr;</a>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                        <img src="./images/unsplash-photo-1573496359142-b8d87734a5a2-w400.webp" alt="Coach Elena Rostova" class="w-24 h-24 rounded-2xl object-cover mb-4 border-2 border-blue-600" loading="lazy">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Elena Rostova</h3>
+                        <p class="text-xs text-blue-600 dark:text-sky-400 font-semibold mb-2">Track & Athletics Specialist | M.Sc Kinesiology</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">6+ years track conditioning expert. Focused on youth speed development and bio-mechanics.</p>
+                        <a href="coach-details.html?id=3" class="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600">View Profile &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Testimonials Box -->
+                <div class="bg-gradient-to-r from-blue-950 via-blue-900 to-slate-950 text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-blue-800">
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 space-y-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Parent Experiences</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold uppercase">What Parents Say About Our Coaching</h3>
+                            <p class="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                                Hear from parents who have witnessed incredible growth in their children's fitness, discipline, and sports performance.
+                            </p>
+                        </div>
+                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-3">
+                                <div class="text-sky-400 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-xs text-blue-50 italic">"The home tuition football coaching transformed my 9-year-old son's confidence. Coach Marcus is patient, disciplined, and super encouraging."</p>
+                                <div>
+                                    <span class="block font-bold text-sm text-white">Rebecca Harrison</span>
+                                    <span class="block text-[10px] text-sky-300">Parent of Leo (Football Batch)</span>
+                                </div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-3">
+                                <div class="text-sky-400 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-xs text-blue-50 italic">"The Parent Dashboard makes tracking attendance and reviewing coach feedback so effortless. Outstanding academy organization!"</p>
+                                <div>
+                                    <span class="block font-bold text-sm text-white">Michael Chen</span>
+                                    <span class="block text-[10px] text-sky-300">Parent of Maya (Basketball Batch)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: FINAL CTA SECTION -->
+        <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-slate-900 text-white text-center">
+            <div class="max-w-4xl mx-auto px-4 space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Enrollment Open</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase">Enroll Your Child Today</h2>
+                <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto">
+                    Take the first step toward building athletic strength, confidence, and sportsmanship. Join over 1,500 active youth athletes.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 pt-2">
+                    <a href="signup.html" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm px-8 py-4 rounded-xl shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-0.5">
+                        Enroll Online Now
+                    </a>
+                    <a href="contact.html" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm px-8 py-4 rounded-xl transition-colors">
+                        Contact Academy Counselor
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                <div class="lg:col-span-2 space-y-5">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white text-lg font-black">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-black text-white uppercase">Champion</span>
+                            <span class="block text-xs font-semibold text-sky-400 uppercase tracking-widest">Sports Academy</span>
+                        </div>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        Premier multi-location sports tuition and athletic coaching center dedicated to molding young talent into athletic champions through professional guidance and structured training.
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="about.html" class="hover:text-sky-400 transition-colors">About Academy</a></li>
+                        <li><a href="coaches.html" class="hover:text-sky-400 transition-colors">Certified Coaches</a></li>
+                        <li><a href="sports.html" class="hover:text-sky-400 transition-colors">Sports Offered</a></li>
+                        <li><a href="batches.html" class="hover:text-sky-400 transition-colors">Batch Schedules</a></li>
+                        <li><a href="blog.html" class="hover:text-sky-400 transition-colors">News & Articles</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Sports & Portals</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="sports.html#football" class="hover:text-sky-400 transition-colors">Football Coaching</a></li>
+                        <li><a href="sports.html#basketball" class="hover:text-sky-400 transition-colors">Basketball Training</a></li>
+                        <li><a href="sports.html#athletics" class="hover:text-sky-400 transition-colors">Athletics Track</a></li>
+                        <li><a href="parent-dashboard.html" class="hover:text-sky-400 transition-colors">Parent Portal</a></li>
+                        <li><a href="admin-dashboard.html" class="hover:text-sky-400 transition-colors">Admin Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Stay Updated</h4>
+                    <p class="text-xs text-slate-400 mb-3">Subscribe for batch updates and fitness tips.</p>
+                    <form onsubmit="event.preventDefault(); showToast('Subscribed to newsletter!', 'success');" class="space-y-2">
+                        <input type="email" placeholder="Enter parent email" required class="w-full px-3 py-2 text-sm bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:border-blue-500 text-slate-200">
+                        <button type="submit" class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 space-y-4 md:space-y-0">
+                <p>&copy; 2026 Champion Sports Academy. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="privacy-policy.html" class="hover:text-slate-400 transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-slate-400 transition-colors">Terms of Service</a>
+                    <a href="contact.html" class="hover:text-slate-400 transition-colors">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

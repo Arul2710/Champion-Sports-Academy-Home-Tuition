@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Champion Sports Academy Management</title>
+    <meta name="description" content="Sports Academy Management System. Manage students, coaches, locations, training batches, enrollments, attendance, and fee billing.">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#172554'
+                        },
+                        secondary: '#1E3A8A',
+                        accent: '#38BDF8',
+                        surface: '#EFF6FF',
+                        ink: '#1E293B',
+                        night: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/theme.js"></script>
+    <script src="js/rtl.js"></script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col md:flex-row">
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div id="dash-sidebar-overlay" class="fixed inset-0 bg-slate-900/60 z-40 hidden md:hidden"></div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside id="dash-sidebar" class="fixed top-0 left-0 bottom-0 w-64 bg-slate-950 text-slate-300 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col justify-between overflow-y-auto border-r border-slate-800">
+        <div>
+            <!-- Sidebar Header -->
+            <div class="p-6 border-b border-slate-800 flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-9 h-9 rounded-xl bg-sky-400 text-slate-950 flex items-center justify-center font-black">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <span class="block text-sm font-black text-white uppercase">Champion</span>
+                        <span class="block text-[10px] text-sky-400 font-bold uppercase tracking-wider">Admin Control</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Admin Brief -->
+            <div class="p-3 mx-4 my-3 bg-slate-900 rounded-xl flex items-center space-x-3 border border-slate-800">
+                <div class="w-8 h-8 rounded-lg bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 flex items-center justify-center font-bold text-xs">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <div class="overflow-hidden">
+                    <span class="block font-bold text-xs text-white truncate">Director Admin</span>
+                    <span class="block text-[10px] text-slate-400 truncate">admin@sportsacademy.com</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="px-3 space-y-1 text-xs">
+                <a href="#" data-target="admin-sec-overview" class="dash-nav-item active flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold bg-primary-600 text-white">
+                    <i class="fa-solid fa-gauge-high"></i><span>Dashboard Overview</span>
+                </a>
+                <a href="#" data-target="admin-sec-locations" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-location-dot"></i><span>Locations Mgmt</span>
+                </a>
+                <a href="#" data-target="admin-sec-sports" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-trophy"></i><span>Sports Categories</span>
+                </a>
+                <a href="#" data-target="admin-sec-coaches" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-user-tie"></i><span>Coaches Directory</span>
+                </a>
+                <a href="#" data-target="admin-sec-students" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-children"></i><span>Students Management</span>
+                </a>
+                <a href="#" data-target="admin-sec-batches" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-layer-group"></i><span>Batch Management</span>
+                </a>
+                <a href="#" data-target="admin-sec-enrollments" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-file-signature"></i><span>Enrollment Requests</span>
+                </a>
+                <a href="#" data-target="admin-sec-attendance" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-clipboard-check"></i><span>Mark Attendance</span>
+                </a>
+                <a href="#" data-target="admin-sec-fees" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-file-invoice-dollar"></i><span>Fee & Payments</span>
+                </a>
+                <a href="#" data-target="admin-sec-reports" class="dash-nav-item flex items-center space-x-3 px-3 py-2 rounded-xl font-semibold text-slate-300 hover:bg-slate-800">
+                    <i class="fa-solid fa-chart-line"></i><span>Reports & Analytics</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Sidebar Footer Controls -->
+        <div class="p-4 border-t border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+                <button class="rtl-toggle-btn px-2.5 py-1 bg-slate-800 text-[10px] font-bold rounded text-slate-300">
+                    <span class="rtl-text">RTL</span>
+                </button>
+                <button class="theme-toggle-btn p-1.5 bg-slate-800 text-xs rounded text-slate-300">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            <button onclick="logoutUser()" class="w-full py-2 bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white rounded-xl text-xs font-bold transition-colors">
+                <i class="fa-solid fa-arrow-right-from-bracket mr-2"></i> Admin Logout
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN ADMIN AREA -->
+    <div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+        <!-- TOP HEADER -->
+        <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 px-6 flex items-center justify-between sticky top-0 z-30">
+            <div class="flex items-center space-x-4">
+                <button id="dash-sidebar-toggle" class="md:hidden text-slate-600 dark:text-slate-300 text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h2 id="dash-header-title" class="text-lg font-bold text-slate-900 dark:text-white">Academy Administration Overview</h2>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <span class="text-xs font-bold px-3 py-1 bg-sky-100 dark:bg-sky-900/40 text-sky-600 dark:text-sky-300 rounded-full">Demo Admin Mode</span>
+                <a href="index.html" class="text-xs font-semibold text-blue-600 hover:underline">
+                    <i class="fa-solid fa-globe mr-1"></i> View Site
+                </a>
+            </div>
+        </header>
+
+        <!-- ADMIN SECTIONS -->
+        <main class="flex-1 min-w-0 p-6 space-y-8">
+
+            <!-- SECTION 1: OVERVIEW -->
+            <section id="admin-sec-overview" class="dash-section space-y-6">
+                <!-- 6 Metric Cards -->
+                <div class="grid grid-cols-2 lg:grid-cols-6 gap-4">
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold">Total Students</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-slate-900 dark:text-white">1,540</span>
+                            <i class="fa-solid fa-children text-blue-600"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold">Total Coaches</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-slate-900 dark:text-white">45</span>
+                            <i class="fa-solid fa-user-tie text-sky-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold">Locations</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-slate-900 dark:text-white">12</span>
+                            <i class="fa-solid fa-location-dot text-blue-600"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold">Active Batches</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-slate-900 dark:text-white">38</span>
+                            <i class="fa-solid fa-layer-group text-blue-600"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold">New Requests</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-sky-400">14</span>
+                            <i class="fa-solid fa-bell text-sky-400"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold">Pending Fees</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-black text-blue-600">$1,850</span>
+                            <i class="fa-solid fa-dollar-sign text-blue-600"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Table -->
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Recent Academy Enrollments</h3>
+                        <button data-modal-open="modal-add-enrollment" class="px-3 py-1.5 bg-blue-600 text-white rounded-xl text-xs font-bold">+ New Manual Enrollment</button>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-100 dark:bg-slate-800 font-bold uppercase text-slate-700 dark:text-slate-300">
+                                <tr>
+                                    <th class="p-3">Student Name</th>
+                                    <th class="p-3">Parent Name</th>
+                                    <th class="p-3">Sport / Batch</th>
+                                    <th class="p-3">Location</th>
+                                    <th class="p-3">Status</th>
+                                    <th class="p-3 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
+                                <tr>
+                                    <td class="p-3 font-bold">Leo Jenkins</td>
+                                    <td class="p-3">Sarah Jenkins</td>
+                                    <td class="p-3">Football (FB-101)</td>
+                                    <td class="p-3">Central Sports Hub</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-bold">Approved</span></td>
+                                    <td class="p-3 text-center space-x-2">
+                                        <button onclick="showToast('Record updated.', 'info')" class="text-blue-500 hover:underline">Edit</button>
+                                        <button class="admin-delete-btn text-rose-500 hover:underline">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold">Noah Williams</td>
+                                    <td class="p-3">Robert Williams</td>
+                                    <td class="p-3">Basketball (BK-202)</td>
+                                    <td class="p-3">Westside Hub</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 bg-sky-100 text-sky-700 rounded font-bold">Pending Approval</span></td>
+                                    <td class="p-3 text-center space-x-2">
+                                        <button onclick="showToast('Enrollment approved!', 'success')" class="text-blue-600 font-bold hover:underline">Approve</button>
+                                        <button class="admin-delete-btn text-rose-500 hover:underline">Reject</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: LOCATIONS MANAGEMENT -->
+            <section id="admin-sec-locations" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Academy Locations Management</h3>
+                        <button data-modal-open="modal-add-location" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">+ Add Location</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-100 dark:bg-slate-800 font-bold uppercase">
+                                <tr>
+                                    <th class="p-3">Location Name</th>
+                                    <th class="p-3">Address</th>
+                                    <th class="p-3">Sports Offered</th>
+                                    <th class="p-3 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <tr>
+                                    <td class="p-3 font-bold">Central Sports Complex</td>
+                                    <td class="p-3">742 Evergreen Terrace</td>
+                                    <td class="p-3">Football, Athletics</td>
+                                    <td class="p-3 text-center space-x-2">
+                                        <button onclick="showToast('Editing Location record...', 'info')" class="text-blue-500">Edit</button>
+                                        <button class="admin-delete-btn text-rose-500">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: SPORTS CATEGORIES -->
+            <section id="admin-sec-sports" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm">Sports Disciplines</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Football</h4>
+                            <p class="text-slate-500">18 Active Batches • 620 Students</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Basketball</h4>
+                            <p class="text-slate-500">12 Active Batches • 480 Students</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Athletics</h4>
+                            <p class="text-slate-500">8 Active Batches • 440 Students</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: COACHES -->
+            <section id="admin-sec-coaches" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Coach Roster</h3>
+                        <button data-modal-open="modal-add-coach" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">+ Add Coach</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-100 dark:bg-slate-800 font-bold uppercase">
+                                <tr>
+                                    <th class="p-3">Coach Name</th>
+                                    <th class="p-3">Specialization</th>
+                                    <th class="p-3">License/Qual</th>
+                                    <th class="p-3 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                <tr>
+                                    <td class="p-3 font-bold">Marcus Vance</td>
+                                    <td class="p-3">Football Head Coach</td>
+                                    <td class="p-3">UEFA B License</td>
+                                    <td class="p-3 text-center space-x-2">
+                                        <button onclick="showToast('Edit coach profile...', 'info')" class="text-blue-500">Edit</button>
+                                        <button class="admin-delete-btn text-rose-500">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: STUDENTS -->
+            <section id="admin-sec-students" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm">Student Directory</h3>
+                    <p class="text-xs text-slate-500">1,540 Active Students registered across all locations.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6: BATCHES -->
+            <section id="admin-sec-batches" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm">Training Batch Creation</h3>
+                        <button data-modal-open="modal-add-batch" class="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">+ Create Batch</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: ENROLLMENTS -->
+            <section id="admin-sec-enrollments" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm">Pending Enrollment Requests</h3>
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl flex justify-between items-center text-xs">
+                        <div>
+                            <span class="font-bold block">Noah Williams (Basketball - U12)</span>
+                            <span class="text-slate-500">Requested by Robert Williams • Westside Hub</span>
+                        </div>
+                        <div class="space-x-2">
+                            <button onclick="showToast('Approved enrollment request!', 'success')" class="px-3 py-1 bg-blue-600 text-white rounded font-bold">Approve</button>
+                            <button onclick="showToast('Rejected request.', 'warning')" class="px-3 py-1 bg-rose-600 text-white rounded font-bold">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: ATTENDANCE -->
+            <section id="admin-sec-attendance" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm">Mark Daily Batch Attendance</h3>
+                    <form onsubmit="event.preventDefault(); showToast('Attendance recorded for batch FB-101!', 'success');" class="space-y-3 text-xs">
+                        <select class="p-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl font-bold">
+                            <option>FB-101 (Football - Mon/Wed 4:30 PM)</option>
+                            <option>BK-202 (Basketball - Tue/Thu 5:00 PM)</option>
+                        </select>
+                        <button type="submit" class="px-4 py-2 bg-blue-600 text-white font-bold rounded-xl">Submit Attendance Sheet</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SECTION 9: FEES -->
+            <section id="admin-sec-fees" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm">Fee Payment Records & Reminders</h3>
+                    <button onclick="showToast('Automated fee reminders sent to all pending parents!', 'success')" class="px-4 py-2 bg-sky-400 text-slate-950 text-xs font-bold rounded-xl">Send Reminders</button>
+                </div>
+            </section>
+
+            <!-- SECTION 10: REPORTS -->
+            <section id="admin-sec-reports" class="dash-section hidden space-y-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-sm">Academy Performance & Revenue Reports</h3>
+                    <button onclick="showToast('Demo CSV Analytics Report generated & downloaded.', 'info')" class="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">Generate PDF/CSV Report</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- DEMO ADMIN MODAL CONTAINERS -->
+
+    <!-- Add Location Modal -->
+    <div id="modal-add-location" class="modal-container fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl max-w-md w-full border border-slate-200 dark:border-slate-700 space-y-4">
+            <div class="flex justify-between items-center border-b pb-3 dark:border-slate-800">
+                <h3 class="font-bold text-slate-900 dark:text-white text-base">Add New Academy Location</h3>
+                <button data-modal-close class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form class="admin-add-form space-y-3 text-xs" data-entity="Location">
+                <div>
+                    <label class="block font-bold mb-1">Location Name</label>
+                    <input type="text" required placeholder="e.g. Eastside Sports Arena" class="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl">
+                </div>
+                <div>
+                    <label class="block font-bold mb-1">Address</label>
+                    <input type="text" required placeholder="Address details..." class="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl">
+                </div>
+                <button type="submit" class="w-full py-2.5 bg-blue-600 text-white font-bold rounded-xl">Save Location</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Coach Modal -->
+    <div id="modal-add-coach" class="modal-container fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl max-w-md w-full border border-slate-200 dark:border-slate-700 space-y-4">
+            <div class="flex justify-between items-center border-b pb-3 dark:border-slate-800">
+                <h3 class="font-bold text-slate-900 dark:text-white text-base">Add New Coach Profile</h3>
+                <button data-modal-close class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <form class="admin-add-form space-y-3 text-xs" data-entity="Coach">
+                <div>
+                    <label class="block font-bold mb-1">Coach Full Name</label>
+                    <input type="text" required placeholder="e.g. Alex Turner" class="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl">
+                </div>
+                <div>
+                    <label class="block font-bold mb-1">Sport Specialization</label>
+                    <select class="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl font-medium">
+                        <option>Football</option>
+                        <option>Basketball</option>
+                        <option>Athletics</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-2.5 bg-blue-600 text-white font-bold rounded-xl">Save Coach Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+/* Custom Styles for Champion Sports Academy - Blue Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary-color: #2563EB;
+    --primary-dark: #1E3A8A;
+    --accent-color: #38BDF8;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* `clip` (not `hidden`) keeps this from turning <html> into a scroll container,
+   which would break the sticky navbar. body keeps `hidden` as the fallback. */
+html {
+    overflow-x: clip;
+    /* Keep in-page anchors (e.g. sports.html#football) clear of the sticky navbar */
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
+    /* Guard against accidental horizontal overflow on small screens.
+       `clip` rather than `hidden`: because `html` is `clip` (not `visible`) no
+       overflow propagates to the viewport, so `hidden` here would make body a
+       scroll container and the sticky navbar would stop sticking. `clip` still
+       blocks horizontal scrolling. `hidden` remains as the older-browser fallback. */
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #eff6ff;
+}
+.dark ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #2563EB;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1E3A8A;
+}
+
+/* RTL Helpers */
+[dir="rtl"] {
+    text-align: right;
+}
+[dir="rtl"] .space-x-1 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .fa-arrow-right {
+    transform: scaleX(-1);
+}
+[dir="rtl"] .fa-chevron-right {
+    transform: scaleX(-1);
+}
+
+/* Glassmorphism & Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+}
+.dark .glass-card {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.athletic-shadow {
+    box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.25);
+}
+
+.athletic-gradient {
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #1D4ED8 100%);
+}
+
+.sky-gradient {
+    background: linear-gradient(135deg, #0284C7 0%, #38BDF8 100%);
+}
+
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 58, 138, 0.85) 100%);
+}
+
+/* ---------- Hero Background Images ----------
+   Uses CSS background-image so the photo always covers the whole hero,
+   independent of the `img { height: auto }` reset above. */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: #0f172a;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    transform: translateZ(0);
+}
+
+.hero-bg-stadium {
+    background-image: url('../images/wallpapers-coaching-pictures-4096-x-2146-utf3qc6e388d64nq.jpg');
+}
+
+.hero-bg-sports {
+    background-image: url('../images/images-floodlit-soccer-field-stockcake.jpg');
+}
+
+.hero-bg-arena {
+    background-image: url('../images/thumbs-netball-strategy-happy-sports-team-coach-plann.webp');
+}
+
+.hero-bg-blog {
+    background-image: url('../images/static-ai-generated-gold-cup-to-the-winner-of-the-com.jpg');
+}
+
+.hero-bg-contact {
+    background-image: url('../images/wallpaperaccess-6592911.webp');
+}
+
+.hero-bg-batches {
+    background-image: url('../images/athletetrainingandhealth-030k2819.jpg');
+}
+
+/* Tablet: keep the subject in frame rather than over-zooming */
+@media (max-width: 1024px) {
+    .hero-bg {
+        background-position: center 40%;
+    }
+}
+
+/* Mobile: a top-weighted crop keeps the subject in frame on narrow screens */
+@media (max-width: 640px) {
+    .hero-bg {
+        background-position: center top;
+    }
+    /* Only the full-bleed home heroes shrink; short inner-page banners keep their natural height */
+    .hero-section-hero {
+        min-height: 70vh;
+    }
+}
+
+/* Extra contrast for hero headings sitting on top of a photo */
+.hero-section h1,
+.hero-section h2 {
+    text-shadow: 0 2px 16px rgba(2, 6, 23, 0.55);
+}
+
+/* ---------- Navbar Utility Buttons ----------
+   The RTL and Dark Mode toggles must be pixel-identical in width, height,
+   padding, alignment and corner radius on desktop, tablet and mobile. */
+.navbar-icon-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0.5rem;
+    line-height: 1;
+}
+
+/* Custom Dropdown Animation */
+.dropdown-menu {
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+}
+.dropdown-parent:hover .dropdown-menu,
+.dropdown-parent:focus-within .dropdown-menu,
+.dropdown-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Animated Badges & Accents */
+@keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.04); }
+}
+.animate-pulse-slow {
+    animation: pulse-slow 3s infinite ease-in-out;
+}
+
+/* Custom Table styling for dark mode */
+.dark table th {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+.dark table td {
+    border-color: #334155;
+    color: #cbd5e1;
+}
+
+/* Toast Notifications */
+#toast-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+}
+[dir="rtl"] #toast-container {
+    right: auto;
+    left: 1.5rem;
+}
