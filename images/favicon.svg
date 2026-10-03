@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Champion Sports Academy">
+  <title>Champion Sports Academy</title>
+  <defs>
+    <linearGradient id="csa-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#csa-bg)"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round">
+    <path d="M20.5 16h-3a7.5 7.5 0 0 0 0 15h2.5"/>
+    <path d="M43.5 16h3a7.5 7.5 0 0 1 0 15H44"/>
+  </g>
+  <g fill="#FFFFFF">
+    <path d="M20 13h24v9a12 12 0 0 1-24 0z"/>
+    <path d="M29 34.5h6V43h-6z"/>
+    <path d="M23 43h18v4.5H23z"/>
+    <path d="M20.5 47.5h23V52h-23z"/>
+  </g>
+</svg>

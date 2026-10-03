@@ -59,6 +59,32 @@ for (const f of files) {
   if (deadHash) add(f, `${deadHash} unwired placeholder href="#" link(s)`);
 }
 
+/* ---------- favicon / app icons: declared on every page and the files exist ---------- */
+const MANIFEST = 'site.webmanifest';
+for (const f of files) {
+  const html = fs.readFileSync(path.join(ROOT, f), 'utf8');
+  const hrefs = [...html.matchAll(/<link[^>]+rel="(?:icon|apple-touch-icon|manifest)"[^>]*>/gi)]
+    .map((m) => (m[0].match(/href="([^"]+)"/) || [])[1])
+    .filter(Boolean);
+  if (!hrefs.length) { add(f, 'no favicon declared'); continue; }
+  if (!/<link[^>]+rel="icon"[^>]*type="image\/svg\+xml"/i.test(html)) add(f, 'no SVG favicon declared');
+  if (!hrefs.includes(MANIFEST)) add(f, 'no web app manifest link');
+  for (const h of hrefs) {
+    if (!fs.existsSync(path.join(ROOT, h))) add(f, `favicon asset missing: ${h}`);
+  }
+}
+/* the manifest must be valid JSON and point at icons that exist */
+try {
+  const man = JSON.parse(fs.readFileSync(path.join(ROOT, MANIFEST), 'utf8'));
+  if (!man.icons || !man.icons.length) problems.push([MANIFEST, 'manifest declares no icons']);
+  for (const ic of man.icons || []) {
+    if (!fs.existsSync(path.join(ROOT, ic.src))) problems.push([MANIFEST, `manifest icon missing: ${ic.src}`]);
+  }
+  if (man.start_url && !fs.existsSync(path.join(ROOT, man.start_url))) problems.push([MANIFEST, `manifest start_url missing: ${man.start_url}`]);
+} catch (e) {
+  problems.push([MANIFEST, `manifest unreadable/invalid: ${e.message}`]);
+}
+
 /* ---------- duplicate ids across pages must be unique per page only; check js syntax ---------- */
 const jsDir = path.join(ROOT, 'js');
 for (const f of fs.readdirSync(jsDir).filter((f) => f.endsWith('.js'))) {
